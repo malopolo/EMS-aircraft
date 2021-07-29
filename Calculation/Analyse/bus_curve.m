@@ -3,8 +3,8 @@ function bus_curve(data,titlle)
     var = data.out;
     t = var.tout;
     figure;
-    wanted = var.voltage.signals.values(:,1);
-    real = var.voltage.signals.values(:,2);
+    wanted = var.LOAD.signals.values(:,2);
+    real = var.LOAD.signals.values(:,1);
     plot(t,wanted);
     hold on;
     plot(t,real);
