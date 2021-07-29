@@ -42,7 +42,7 @@ The simulink powertrain file ("Main/powertrain.slx") is composed of 5 parts to i
 To anylyse the different data we use some .mlx and .m files:
 ### start.mlx
 This file is used to start different simulations with different strategies.</br>
-<b>USE THIS FILE TO START THE SIMULATION PROCESS</b>
+:arrow_right:<b>USE THIS FILE TO START THE SIMULATION PROCESS</b>:arrow_left:
 ### Comparison.mlx
 This file is used to compare the results of the different EMS:
 <ul>
