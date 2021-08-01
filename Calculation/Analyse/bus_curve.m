@@ -1,10 +1,9 @@
 function bus_curve(data,titlle)
     clf;
-    var = data.out;
-    t = var.tout;
+    t = data.tout;
     figure;
-    wanted = var.LOAD.signals.values(:,2);
-    real = var.LOAD.signals.values(:,1);
+    wanted = data.LOAD.signals.values(:,2);
+    real = data.LOAD.signals.values(:,1);
     plot(t,wanted);
     hold on;
     plot(t,real);

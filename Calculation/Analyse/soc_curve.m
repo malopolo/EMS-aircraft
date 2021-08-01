@@ -1,9 +1,8 @@
 function soc_curve(data,titlle)
     clf;
-    var = data.out;
-    t = var.tout;
+    t = data.tout;
     figure;    
-    plot(t,var.Batt.signals.values(:,6));
+    plot(t,data.Batt.signals.values(:,6));
     legend('SOC');
     ylabel('SOC (%)');
     xlabel('Time (s)'); 

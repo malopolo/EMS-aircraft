@@ -1,11 +1,12 @@
 function [col] = mean_error(sim)
-    col = zeros(numel(sim),4);
-    for i = 1:numel(sim)
-        rmse_p = sim(i).out.RMSE_power.Data;
-        rmse_v = sim(i).out.RMSE_voltage.Data;
-        t = sim(i).out.RMSE_voltage.Time;
-        ep = sim(i).out.error_power.Data;
-        ev =sim(i).out.error_voltage.Data;
+    sz_sim = size(sim);
+    col = zeros(sz_sim(1),4);
+    for i = 1:sz_sim(1)
+        rmse_p = sim(i).RMSE_power.Data;
+        rmse_v = sim(i).RMSE_voltage.Data;
+        t = sim(i).RMSE_voltage.Time;
+        ep = sim(i).error_power.Data;
+        ev =sim(i).error_voltage.Data;
 
         for j = 1:length(t)
             if ~isfinite(ev(j)) || ev(j) > 100
