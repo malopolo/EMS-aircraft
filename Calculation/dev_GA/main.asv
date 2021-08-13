@@ -1,0 +1,126 @@
+%% Start Program
+clc
+clear
+w=[]; % init table ?
+tic
+% fismat=readfis('Fuzzy_in'); % read the fuzzy to improve
+
+%% GA Parameters
+NumGeneration = 1000;
+PopSize = 2;
+ChromosomeSize = 22;
+CrossPercent = 70; % crossover probability x100
+MutatPercent = 20; % mutation probability x100
+ElitPercent = 100 - CrossPercent - MutatPercent;
+
+% select the number of crossover / mutation / elitism operation
+CrossNum = round(CrossPercent/100*PopSize);
+if mod(CrossNum,2) CrossNum = CrossNum - 1; end
+MutatNum = round(MutatPercent/100*PopSize);
+ElitNum = PopSize - CrossNum - MutatNum;
+
+
+
+%% Boundaries of each MFs parameters
+VarMin = 0; % min value of each member of the pop
+VarMax = 1;  % max value of each memeber of the pop
+
+
+%% Global parameters
+file = load('load_oc_without_noise.mat');
+fuzzy_to_improve_1 = readfis('fuzzy_to_impr.fis');
+C_sc = 1;
+time = file.load_oc_without_noise(1,:);
+power_profile = file.load_oc_without_noise(2,:)/1500; % max power
+t = time;
+w = file.load_oc_without_noise(2,:);
+
+%% Initialize Population
+[Fit, Pop] = init(PopSize,ChromosomeSize,VarMax,VarMin,time,power_profile,fuzzy_to_improve_1);
+mfedit(fuzzy_
+% %% Main Loop
+% MeanMat = [];
+% MinMat = [];
+% it=0;
+% 
+% %% Loop
+% for Iter = 1:NumGeneration
+%     %% Elitism
+%     ElitPop = Pop(1:ElitNum,:); % select the top x% of the pop
+%     
+%     %% Cross Over
+%     CrossPop = [];
+%     ParentIndexes = SelectParents_Fcn(Cost,CrossNum,SelMethod);
+%     % random permutation and get the number of cross selected
+%     
+%     for ii = 1:CrossNum/2
+%         Par1Indx = ParentIndexes(ii*2-1);
+%         Par2Indx = ParentIndexes(ii*2);
+%         
+%         Par1 = Pop(Par1Indx,:); % get the selected parent 1
+%         Par2 = Pop(Par2Indx,:); % get the selected parent 2
+%         
+%         [Off1 Off2] = MyCrossOver_Fcn(Par1,Par2,CrossMethod);
+%         % make the crossover (random choice of the two parts)
+%         CrossPop = [CrossPop ; Off1 ; Off2];
+%         % CrossPop = new offset pop
+%     end
+%     
+%     %% Mutation
+%     MutatPop = rand(MutatNum,DimNum) * (VarMax - VarMin) + VarMin;
+%     % random mutation pop
+%     
+%     
+%     %% New Population
+%     Pop = [ElitPop ; CrossPop ; MutatPop];
+%     % new pop
+%     
+%     Cost = feval(CostFuncName,Pop);
+%     % calcul of the cost of each pop
+%     
+%     [Cost Indx] = sort(Cost); % sort the cost with the different indexes
+% 
+%     varcost=var(Cost);
+%     z=0;
+%     for ii=1:PopSize;
+%         z=Cost(ii)+z;
+%     end
+%     mean1=z/PopSize;
+%     ma=max(Cost);
+%     mi=min(Cost);
+%     mean=1-((mean1-mi)/(ma-mi));
+%     Pop = Pop(Indx,:);
+%     % Select the population depending on the best cost
+%     
+%     
+%     %% Algorithm Progress
+%     disp('----------------------------------------------')
+%     BestP = Pop(1,:) % just display the best pop
+%     BestC = Cost(1) % just display the best cost
+%     MinMat(Iter) = Cost(1); % save the best cost
+%     %MeanMat(Iter) = mean(Cost);
+%     best=1-(BestC/ma);
+%     
+%     w=evalfis(fismat,[Iter;best;varcost;mean]);
+%     % most important part
+%     MutatPercent = w(1);
+%     CrossPercent = w(2);
+%     PopSize= w(3);
+%     
+%     it=it+1;
+%     %plot(MinMat,'--r','linewidth',2);
+%     %hold on
+%     %     plot(MeanMat,'--k','linewidth',2);
+%     %     hold off
+%     %pause(.5)
+%     semilogy(Iter,MinMat(Iter),'r.')
+%     hold on
+%     %semilogy(Iter,mean(Iter),'b.')
+% end
+% % ylim([0 5])
+% %% Results
+% BestSolution = Pop(1,:)
+% BestCost = Cost(1,:)
+% 
+% %% End Program
+% toc

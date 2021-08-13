@@ -16,7 +16,6 @@ function [col] = consumption(sim)
 
         col(i,4) = 1- sim(i).Batt.signals.values(end,7);
         
-        
         col(i,5) = sim(i).real_time_sim;
     end
 end

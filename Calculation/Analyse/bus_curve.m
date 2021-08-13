@@ -1,5 +1,5 @@
 function bus_curve(data,titlle)
-    clf;
+%     clf;
     t = data.tout;
     figure;
     wanted = data.LOAD.signals.values(:,2);

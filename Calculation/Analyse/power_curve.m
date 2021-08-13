@@ -1,5 +1,5 @@
 function power_curve(data,titlle)
-    clf;
+%     clf;
     t = data.tout;
     figure;    
     plot(t,data.compar_out.signals.values(:,1));
