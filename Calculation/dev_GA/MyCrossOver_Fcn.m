@@ -1,4 +1,4 @@
-function [Off1 Off2] = MyCrossOver_Fcn(Par1,Par2,CrossMethod)
+function [Off1, Off2] = MyCrossOver_Fcn(Par1,Par2,CrossMethod)
 
 switch CrossMethod
     case 1

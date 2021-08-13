@@ -1,11 +1,19 @@
-function model_res = test(fisi)
-    model = 'to_del';
-    %% Set data
-    % Ts = 1e-4;
-    SimTime = 85; % Max simulation time
-    SOC_init = 80;
-    set_param('to_del/Fuzzy Logic Controller','FIS','fisi');
-    %start sim
-    model_res = sim(model,'StartTime','0','StopTime',num2str(SimTime));
-    
-end
+% %% Get current folder and add all folders to the path
+% currentpath = pwd;
+% currentfolder = strsplit(currentpath,filesep);
+% while ((~strcmp(currentfolder{end}, 'EMS-aircraft')) && ...
+%         (~strcmp(currentfolder{end}, 'EMS-aircraft-main')) && ...
+%         ~isempty(currentfolder{end}))
+%     currentpath = fileparts(currentpath);
+%     currentfolder = strsplit(currentpath,filesep);
+% end
+% projectpath = currentpath;
+% addpath(genpath(projectpath));
+
+%%
+tic
+Ts = 1e-3;
+model = strcat(projectpath,'\Main\fast_powertrain.slx');
+open_system(model);
+sss = sim(model,'StartTime','0','StopTime',num2str(60));
+toc
