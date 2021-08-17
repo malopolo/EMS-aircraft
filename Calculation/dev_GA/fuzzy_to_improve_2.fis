@@ -1,5 +1,5 @@
 [System]
-Name='fuzzy_to_improve_1'
+Name='fuzzy_to_improve_2'
 Type='mamdani'
 Version=2.0
 NumInputs=2

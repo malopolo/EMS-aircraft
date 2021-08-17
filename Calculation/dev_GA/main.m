@@ -4,7 +4,7 @@ clear
 close all;
 
 %% GA Parameters
-NumGeneration = 30;
+NumGeneration = 60;
 PopSize = 30;
 ChromosomeSize = 22;
 CrossPercent = 70; % crossover probability x100
