@@ -20,13 +20,13 @@ rtDataTypeNames [ ] = { "real_T" , "real32_T" , "int8_T" , "uint8_T" ,
 , "int_T" , "pointer_T" , "action_T" , "timer_uint32_pair_T" ,
 "struct_qjR3VVL6XOE0TG2ANcx3RE" , "struct_0sCPl2iL0Y7nsABAISPuqB" ,
 "struct_2MXDb7W4JJZIDRf8j3cpxG" , "struct_IcLJdXzcioJA7MwAM7PNMG" } ; static
-DataTypeTransition rtBTransitions [ ] = { { ( char_T * ) ( & rtB . krbxk224wc
-) , 0 , 0 , 163 } , { ( char_T * ) ( & rtB . nvvl1et5cw ) , 8 , 0 , 1 } , { (
+DataTypeTransition rtBTransitions [ ] = { { ( char_T * ) ( & rtB . nzprtrw2gw
+) , 0 , 0 , 152 } , { ( char_T * ) ( & rtB . nvvl1et5cw ) , 8 , 0 , 1 } , { (
 char_T * ) ( & rtDW . ae4fdc50fw ) , 0 , 0 , 73 } , { ( char_T * ) ( & rtDW .
-jdobxxns3j [ 0 ] ) , 11 , 0 , 68 } , { ( char_T * ) ( & rtDW . jpo5gkezdl [ 0
+jdobxxns3j [ 0 ] ) , 11 , 0 , 67 } , { ( char_T * ) ( & rtDW . jpo5gkezdl [ 0
 ] ) , 10 , 0 , 12 } , { ( char_T * ) ( & rtDW . jjhzuiuwr5 ) , 2 , 0 , 2 } ,
 { ( char_T * ) ( & rtDW . kt2if2m30y ) , 3 , 0 , 1 } } ; static
 DataTypeTransitionTable rtBTransTable = { 7U , rtBTransitions } ; static
 DataTypeTransition rtPTransitions [ ] = { { ( char_T * ) ( & rtP . t [ 0 ] )
-, 0 , 0 , 26276 } } ; static DataTypeTransitionTable rtPTransTable = { 1U ,
+, 0 , 0 , 363720 } } ; static DataTypeTransitionTable rtPTransTable = { 1U ,
 rtPTransitions } ;

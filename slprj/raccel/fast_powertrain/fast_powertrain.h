@@ -6,7 +6,6 @@
 #ifndef fast_powertrain_COMMON_INCLUDES_
 #define fast_powertrain_COMMON_INCLUDES_
 #include <stdlib.h>
-#include "sl_AsyncioQueue/AsyncioQueueCAPI.h"
 #include "rtwtypes.h"
 #include "simtarget/slSimTgtSigstreamRTW.h"
 #include "simtarget/slSimTgtSlioCoreRTW.h"
@@ -29,10 +28,10 @@
 #include "rtGetInf.h"
 #include "rt_defines.h"
 #define MODEL_NAME fast_powertrain
-#define NSAMPLE_TIMES (5) 
+#define NSAMPLE_TIMES (4) 
 #define NINPUTS (0)       
 #define NOUTPUTS (0)     
-#define NBLOCKIO (105) 
+#define NBLOCKIO (94) 
 #define NUM_ZC_EVENTS (0) 
 #ifndef NCSTATES
 #define NCSTATES (0)   
@@ -47,60 +46,56 @@
 #endif
 #ifndef IN_RACCEL_MAIN
 #endif
-typedef struct { real_T krbxk224wc ; real_T nzprtrw2gw ; real_T cw3ajebfce ;
-real_T ltu4eypckt ; real_T pg2rvzlxso ; real_T igs1gia5uf ; real_T nba4nhpuqe
-; real_T hxodaq3aem ; real_T klfwarvagc ; real_T i0ujncnh35 ; real_T
-dplapzekhr ; real_T b2m0nyy1iq ; real_T dg1zqpobap ; real_T m2zun0bmq0 ;
-real_T bnsiwqbz4c ; real_T nd5vhw3hdp ; real_T pkslvtv3r5 ; real_T l1bfou4fat
-; real_T mdng4h4wi3 ; real_T akgc550kdx ; real_T aunoa00r4h ; real_T
-ds4vmpgjgq [ 38 ] ; real_T aprtxoz0cz [ 12 ] ; real_T dsl30exhdf ; real_T
-lwbnk1tqoe ; real_T lnggl4hxqa ; real_T cnvh3z11oj ; real_T caydqvbppv ;
-real_T cataaai4vr ; real_T glbb5pdj1b ; real_T i5qlxhsaeo ; real_T kx2yvfrvbs
-; real_T pydykgygzv ; real_T i4u1u0nk00 ; real_T bbivpaarxt ; real_T
-nh1zxcsjip ; real_T gvxuq2ivcx ; real_T fiwvizlnvo ; real_T mm1bpfcahk ;
-real_T ds12aiafx0 ; real_T oaypl0xy40 ; real_T hejghjylpf ; real_T lkdpawgj3d
-; real_T b0ihg4ev5s ; real_T dn4cfjoyu3 ; real_T ee4dkbgmbt ; real_T
-a3xn5q0qbv ; real_T d2aecp5kgr ; real_T jqk43gypqg ; real_T k04sqjkmui ;
-real_T ewf3nftshe ; real_T hdopse5d1y ; real_T cabjp2xkxg ; real_T mz2im1vd2w
-; real_T jpdjo1yg5c ; real_T jjcrtkkpmt ; real_T aoywj0c0aw ; real_T
-gswcpufwfm ; real_T nfrcslok3r ; real_T bp13llqzit ; real_T nw10mpmiwb ;
-real_T dsv2bbs0k1 ; real_T oaxo1bryj0 [ 12 ] ; real_T pkp0sjqqg3 ; real_T
-npdclyuhqf ; real_T b11tooymbq ; real_T ju3eqofxsv ; real_T k401caq3eb ;
-real_T ftivrztnav ; real_T cp1s511zvk ; real_T dgk2xu5prp ; real_T fsyjc2e3jn
-; real_T pmkgps0zyu ; real_T crs0im5dqp ; real_T idvqtvfoyk ; real_T
-djegcg25ae ; real_T ijubt5styh ; real_T fxmmxdki1w ; real_T mykimnyubj ;
-real_T b5ekoo4s5v ; real_T ktal25amyn ; real_T e2chijmfh2 ; real_T ajuoykrpve
-; real_T orc5wcdxm1 ; real_T akwd4yohpb ; real_T hwgkbedju4 ; real_T
-akgbctleuf ; real_T fjva4ba3yf ; real_T ojpp3hq5ld ; real_T ddwaerj1qf ;
-real_T e4esbiadth ; real_T dv32o2egzr ; real_T b1fl12txsf ; real_T liwqgy4ofb
-; real_T cf3awerlht ; real_T o0lhjiunqy ; real_T i4esmxfcaq ; real_T
-ewvuxv0roa ; real_T frtehkabsr ; real_T paaipnyjy4 ; real_T ctjnl3duhv ;
-real_T h0hkib4ron ; real_T gxs3xlh0jb ; real_T cuh2ly0avr ; boolean_T
-nvvl1et5cw ; } B ; typedef struct { real_T ae4fdc50fw ; real_T ns3jml1yrn ;
-real_T bkylhixnvg ; real_T mcqhrorlxr ; real_T hyrzihgqre ; real_T opkdjwnlyz
-; real_T nbkcuaxc3y ; real_T blkk50vpkb ; real_T ifljlxnawa ; real_T
-df3h3bq4ax ; real_T ew4rinximz ; real_T nb0afwz3qd ; real_T ntr0qnnxwd ;
-real_T m01vpi11le ; real_T p53jjbkpzn ; real_T mkxkhcmalu ; real_T jejzfwqaao
-; real_T fs5pddw5ow [ 13 ] ; real_T k0okhesaat ; real_T gepbsobs0a ; real_T
-fzr1ogugs2 ; real_T i4wxuhmfgf ; real_T hzeqqg0jia ; real_T c4quijr14v ;
-real_T f51eegc2bu ; real_T fxt15s43p4 ; real_T g3gghz3gaz ; real_T abf3scvxey
-; real_T h1wh3z4evx ; real_T bds32z0txa ; real_T ebacjx4abi ; real_T
-cbffa5ojlz ; real_T cfb4bptno0 ; real_T bljv3otj05 ; real_T b4zh5qri0d ;
-real_T ic00z2hy2m ; real_T fzp55m5l14 ; real_T bsqle4x1ip ; real_T ehtf41cg10
-; real_T p2pkpj1mv5 ; real_T cn5opu2pzs ; real_T fimioqcfmg ; real_T
-ksxohwmcoh ; real_T bv3zs25i1r ; real_T nqhcy2vec4 ; real_T p5fqadhn5b ;
-real_T ikqkqwjh3n ; real_T awv1q3egsu ; real_T bhhdr2vx1r ; real_T m4yjnvjtaz
-; real_T pztkm2b5s5 ; real_T hsvqv45oph ; real_T cg2af1bnv1 ; real_T
-jp23k4f2go ; real_T chezipvofm ; real_T lypv2c215x ; real_T dhksroq5rn ;
-real_T gyaphxw5hc ; real_T n0cer4zw0t ; real_T knii4eahbq ; real_T e0g3wfol1j
-; void * jdobxxns3j [ 65 ] ; struct { void * AQHandles ; } ct5pbogejq ;
-struct { void * LoggedData ; } op222kfxbt ; struct { void * LoggedData ; }
-lqgtrexdqd ; int_T jpo5gkezdl [ 12 ] ; int8_T jjhzuiuwr5 ; int8_T kalc0i12gy
-; uint8_T kt2if2m30y ; } DW ; typedef struct { rtwCAPI_ModelMappingInfo mmi ;
-} DataMapInfo ; struct P_ { real_T t [ 12000 ] ; real_T w [ 12000 ] ; real_T
+typedef struct { real_T nzprtrw2gw ; real_T klfwarvagc ; real_T i0ujncnh35 ;
+real_T dplapzekhr ; real_T b2m0nyy1iq ; real_T dg1zqpobap ; real_T m2zun0bmq0
+; real_T bnsiwqbz4c ; real_T nd5vhw3hdp ; real_T pkslvtv3r5 ; real_T
+mdng4h4wi3 ; real_T akgc550kdx ; real_T aunoa00r4h ; real_T ds4vmpgjgq [ 38 ]
+; real_T aprtxoz0cz [ 12 ] ; real_T dsl30exhdf ; real_T lwbnk1tqoe ; real_T
+lnggl4hxqa ; real_T cnvh3z11oj ; real_T caydqvbppv ; real_T kx2yvfrvbs ;
+real_T i4u1u0nk00 ; real_T npdclyuhqf ; real_T jqk43gypqg ; real_T pkp0sjqqg3
+; real_T iuiyd4knlc ; real_T bbivpaarxt ; real_T nh1zxcsjip ; real_T
+gvxuq2ivcx ; real_T evwgggutgq ; real_T pd50rghzbf ; real_T k4spxtemch ;
+real_T oaypl0xy40 ; real_T hejghjylpf ; real_T lkdpawgj3d ; real_T jqrtcbjb0q
+[ 2 ] ; real_T bsiskimpq4 ; real_T k04sqjkmui ; real_T jpdjo1yg5c ; real_T
+aoywj0c0aw ; real_T gswcpufwfm ; real_T nfrcslok3r ; real_T bp13llqzit ;
+real_T b0ihg4ev5s ; real_T aljtveo2dl ; real_T jr2i1iijlv ; real_T in3foousin
+; real_T pu2uj4duj0 ; real_T dn4cfjoyu3 ; real_T ee4dkbgmbt ; real_T
+a3xn5q0qbv ; real_T d2aecp5kgr ; real_T cataaai4vr ; real_T glbb5pdj1b ;
+real_T i5qlxhsaeo ; real_T nw10mpmiwb ; real_T dsv2bbs0k1 ; real_T oaxo1bryj0
+[ 12 ] ; real_T mnnico2kpm ; real_T ju3eqofxsv ; real_T nkylddyjyp ; real_T
+aqkf223m44 ; real_T b11tooymbq ; real_T gpw42pjoku ; real_T ftivrztnav ;
+real_T cp1s511zvk ; real_T pmkgps0zyu ; real_T crs0im5dqp ; real_T ktal25amyn
+; real_T e2chijmfh2 ; real_T ajuoykrpve ; real_T orc5wcdxm1 ; real_T
+akwd4yohpb ; real_T hwgkbedju4 ; real_T akgbctleuf ; real_T fjva4ba3yf ;
+real_T ojpp3hq5ld ; real_T ddwaerj1qf ; real_T e4esbiadth ; real_T dv32o2egzr
+; real_T b1fl12txsf ; real_T liwqgy4ofb ; real_T cf3awerlht ; real_T
+o0lhjiunqy ; real_T i4esmxfcaq ; real_T ewvuxv0roa ; real_T frtehkabsr ;
+real_T paaipnyjy4 ; real_T ctjnl3duhv ; real_T h0hkib4ron ; real_T gxs3xlh0jb
+; real_T cuh2ly0avr ; boolean_T nvvl1et5cw ; } B ; typedef struct { real_T
+ae4fdc50fw ; real_T ns3jml1yrn ; real_T bkylhixnvg ; real_T mcqhrorlxr ;
+real_T hyrzihgqre ; real_T opkdjwnlyz ; real_T nbkcuaxc3y ; real_T blkk50vpkb
+; real_T ifljlxnawa ; real_T df3h3bq4ax ; real_T ew4rinximz ; real_T
+nb0afwz3qd ; real_T ntr0qnnxwd ; real_T m01vpi11le ; real_T p53jjbkpzn ;
+real_T mkxkhcmalu ; real_T jejzfwqaao ; real_T fs5pddw5ow [ 13 ] ; real_T
+k0okhesaat ; real_T fzr1ogugs2 ; real_T gepbsobs0a ; real_T i4wxuhmfgf ;
+real_T hzeqqg0jia ; real_T f51eegc2bu ; real_T fxt15s43p4 ; real_T g3gghz3gaz
+; real_T abf3scvxey ; real_T h1wh3z4evx ; real_T bds32z0txa ; real_T
+c4quijr14v ; real_T ebacjx4abi ; real_T cbffa5ojlz ; real_T cfb4bptno0 ;
+real_T bljv3otj05 ; real_T b4zh5qri0d ; real_T ic00z2hy2m ; real_T fzp55m5l14
+; real_T bsqle4x1ip ; real_T ehtf41cg10 ; real_T p2pkpj1mv5 ; real_T
+cn5opu2pzs ; real_T fimioqcfmg ; real_T ksxohwmcoh ; real_T bv3zs25i1r ;
+real_T nqhcy2vec4 ; real_T p5fqadhn5b ; real_T ikqkqwjh3n ; real_T awv1q3egsu
+; real_T bhhdr2vx1r ; real_T m4yjnvjtaz ; real_T pztkm2b5s5 ; real_T
+hsvqv45oph ; real_T cg2af1bnv1 ; real_T jp23k4f2go ; real_T chezipvofm ;
+real_T lypv2c215x ; real_T dhksroq5rn ; real_T gyaphxw5hc ; real_T n0cer4zw0t
+; real_T knii4eahbq ; real_T e0g3wfol1j ; void * jdobxxns3j [ 65 ] ; struct {
+void * LoggedData ; } op222kfxbt ; struct { void * LoggedData ; } lqgtrexdqd
+; int_T jpo5gkezdl [ 12 ] ; int8_T jjhzuiuwr5 ; int8_T kalc0i12gy ; uint8_T
+kt2if2m30y ; } DW ; typedef struct { rtwCAPI_ModelMappingInfo mmi ; }
+DataMapInfo ; struct P_ { real_T t [ 180720 ] ; real_T w [ 180720 ] ; real_T
 Battery_BatType ; real_T PVMODULE1_I0 ; real_T PVMODULE1_Impp ; real_T
 DiscretePIController1_Init ; real_T DiscretePIController2_Init ; real_T
-DiscretePIController2_Init_naho2d0zuf ; real_T DiscretePIController3_Init ;
+DiscretePIController2_Init_ofcbucrrnd ; real_T DiscretePIController3_Init ;
 real_T DiscretePIController4_Init ; real_T
 DiscretePIController3_Init_lcdytxavmn ; real_T
 DiscretePIController4_Init_ojyv5ifd0r ; real_T PVMODULE1_Isc ; real_T
@@ -108,17 +103,16 @@ DiscretePIController1_Ki ; real_T DiscretePIController2_Ki ; real_T
 DiscretePIController3_Ki ; real_T DiscretePIController4_Ki ; real_T
 DiscretePIController3_Ki_catboe4e3q ; real_T
 DiscretePIController4_Ki_ksfhmxpwtu ; real_T
-DiscretePIController2_Ki_lu2imaebpa ; real_T DiscretePIController2_Kp ;
-real_T DiscretePIController1_Kp ; real_T DiscretePIController2_Kp_jtir0rv5nd
+DiscretePIController2_Ki_lu2imaebpa ; real_T DiscretePIController1_Kp ;
+real_T DiscretePIController2_Kp ; real_T DiscretePIController2_Kp_jtir0rv5nd
 ; real_T DiscretePIController3_Kp ; real_T DiscretePIController4_Kp ; real_T
 DiscretePIController3_Kp_ppecbhclte ; real_T
 DiscretePIController4_Kp_crtfhdlpjf ; real_T PVMODULE1_Ncell ; real_T
 PVMODULE1_Npar ; real_T PVMODULE1_Nser ; real_T VariableResistor_Rabsmin ;
 real_T PVMODULE1_Rs ; real_T PVMODULE1_Rsh ; real_T Battery_SOC ; real_T
 PVMODULE1_Vmpp ; real_T PVMODULE1_Voc ; real_T PVMODULE1_beta_Voc ; real_T
-CompareToConstant_const ; real_T PVMODULE1_df ; real_T
-Subsystem_irradiance_const ; real_T BoostPVfast_n ; real_T BoostFCfast_n ;
-real_T BidirectionalBOOSTBUCKBattfast_n_boost ; real_T
+CompareToConstant_const ; real_T PVMODULE1_df ; real_T BoostFCfast_n ; real_T
+BoostPVfast_n ; real_T BidirectionalBOOSTBUCKBattfast_n_boost ; real_T
 BidirectionalBOOSTBUCKBattfast_n_buck ; real_T Saturation_UpperSat ; real_T
 Saturation_LowerSat ; real_T OutputSamplePoints_Value [ 2 ] ; real_T
 Switch1_Threshold ; real_T Constant_Value ; real_T Constant_Value_lc2t2ikfiz
@@ -165,20 +159,21 @@ donotdeletethisgain_Gain ; real_T donotdeletethisgain_Gain_kzwtp4lcwh ;
 real_T donotdeletethisgain_Gain_jjlpkzumz0 ; real_T
 DiscreteTimeIntegrator_gainval_figs31oe21 ; real_T
 DiscreteTimeIntegrator_UpperSat ; real_T DiscreteTimeIntegrator_LowerSat ;
-real_T donotdeletethisgain_Gain_pnt2zcpibt ; real_T
-DiscreteTimeIntegrator_gainval_jv55x3tqio ; real_T
-DiscreteTimeIntegrator_UpperSat_n2g2yvldpg ; real_T
-DiscreteTimeIntegrator_LowerSat_fv0zcc4hsa ; real_T Saturation2_UpperSat ;
-real_T Saturation2_LowerSat ; real_T donotdeletethisgain_Gain_fbjp1xgx2i ;
-real_T Saturation2_UpperSat_a2flzvrl0h ; real_T
-Saturation2_LowerSat_imcsw2haey ; real_T
+real_T donotdeletethisgain_Gain_fbjp1xgx2i ; real_T Saturation2_UpperSat ;
+real_T Saturation2_LowerSat ; real_T
 DiscreteTimeIntegrator_gainval_k22hedow4a ; real_T
 DiscreteTimeIntegrator_UpperSat_j2u1431tvu ; real_T
-DiscreteTimeIntegrator_LowerSat_bvygkv3zts ; real_T Saturation7_UpperSat ;
-real_T Saturation7_LowerSat ; real_T donotdeletethisgain_Gain_pc1oacxtz5 ;
-real_T Saturation4_UpperSat ; real_T Saturation4_LowerSat ; real_T
-Saturation2_UpperSat_csxykusiqi ; real_T Saturation2_LowerSat_djxegxbmlp ;
-real_T DiscreteTimeIntegrator_gainval_adna3qjceq ; real_T
+DiscreteTimeIntegrator_LowerSat_bvygkv3zts ; real_T
+donotdeletethisgain_Gain_pnt2zcpibt ; real_T
+DiscreteTimeIntegrator_gainval_jv55x3tqio ; real_T
+DiscreteTimeIntegrator_UpperSat_n2g2yvldpg ; real_T
+DiscreteTimeIntegrator_LowerSat_fv0zcc4hsa ; real_T
+Saturation2_UpperSat_hr00iu210k ; real_T Saturation2_LowerSat_kq0ryizxeu ;
+real_T Saturation7_UpperSat ; real_T Saturation7_LowerSat ; real_T
+donotdeletethisgain_Gain_pc1oacxtz5 ; real_T Saturation4_UpperSat ; real_T
+Saturation4_LowerSat ; real_T Saturation2_UpperSat_csxykusiqi ; real_T
+Saturation2_LowerSat_djxegxbmlp ; real_T
+DiscreteTimeIntegrator_gainval_adna3qjceq ; real_T
 DiscreteTimeIntegrator_UpperSat_iu43zm3tho ; real_T
 DiscreteTimeIntegrator_LowerSat_bdtob5uhem ; real_T
 Saturation2_UpperSat_ldjga0hth1 ; real_T Saturation2_LowerSat_ebdt35gruq ;
@@ -191,19 +186,16 @@ real_T Saturation_UpperSat_jsjpgzsi1y ; real_T Saturation_LowerSat_ebjhnxsenp
 ; real_T Saturation2_UpperSat_amgcitvjo2 ; real_T
 Saturation2_LowerSat_lkim1nsn2b ; real_T Saturation1_UpperSat ; real_T
 Saturation1_LowerSat ; real_T Saturation3_UpperSat ; real_T
-Saturation3_LowerSat ; real_T donotdeletethisgain_Gain_ghiynr5jt3 ; real_T
-donotdeletethisgain_Gain_jhmspkg22p ; real_T
-UnitDelay1_InitialCondition_gagfd2xjhh ; real_T
-Saturation1_UpperSat_jbsy2jdb2e ; real_T Saturation1_LowerSat_km3pw1r5au ;
-real_T donotdeletethisgain_Gain_l30jrki0pa ; real_T
-donotdeletethisgain_Gain_m3s0jpprkc ; real_T
-donotdeletethisgain_Gain_fiwukkn2yr ; real_T
+Saturation3_LowerSat ; real_T donotdeletethisgain_Gain_fiwukkn2yr ; real_T
 donotdeletethisgain_Gain_bnrrpg33he ; real_T
 DiscreteTimeIntegrator_gainval_cdol2y5vzn ; real_T
 DiscreteTimeIntegrator_UpperSat_hfo2y053hj ; real_T
 DiscreteTimeIntegrator_LowerSat_c0vq2ip5xz ; real_T
+donotdeletethisgain_Gain_hbuypofava ; real_T
+donotdeletethisgain_Gain_ebxbsb35rt ; real_T Multiply2_Gain ; real_T R4_Gain
+; real_T Saturation_UpperSat_ms3dxtbvew ; real_T
+Saturation_LowerSat_p3nlfvz151 ; real_T Multiply3_Gain ; real_T
 donotdeletethisgain_Gain_liz3gjfhcs ; real_T
-donotdeletethisgain_Gain_hbuypofava ; real_T Multiply2_Gain ; real_T
 donotdeletethisgain_Gain_ntvbbpumog ; real_T Saturation2_UpperSat_fkd04pf2k1
 ; real_T Saturation2_LowerSat_mzohmr2g2n ; real_T
 DiscreteTimeIntegrator_gainval_cqdxvpityq ; real_T
@@ -215,17 +207,9 @@ Saturation2_UpperSat_kim5qyxfwz ; real_T Saturation2_LowerSat_dlfntvjpxg ;
 real_T Saturation_UpperSat_e2l0llad23 ; real_T Saturation_LowerSat_daenvoeirh
 ; real_T Saturation1_UpperSat_ix0yodnig1 ; real_T
 Saturation1_LowerSat_nfi0d0pja5 ; real_T donotdeletethisgain_Gain_bvblu5w4wa
-; real_T donotdeletethisgain_Gain_nzzshfnxdx ; real_T
-DiscreteTimeIntegrator_gainval_fhcrjdv1um ; real_T
-DiscreteTimeIntegrator_IC_muc3fdmls2 ; real_T
-UnitDelay2_InitialCondition_bdexezlukf ; real_T
-UnitDelay_InitialCondition_br0av5wkrv ; real_T
-DiscreteTimeIntegrator1_gainval ; real_T DiscreteTimeIntegrator1_IC ; real_T
-Gain_Gain_duepg35cnl ; real_T R4_Gain ; real_T Saturation_UpperSat_ms3dxtbvew
-; real_T Saturation_LowerSat_p3nlfvz151 ; real_T
-donotdeletethisgain_Gain_e2kry42snu ; real_T Memory_InitialCondition ; real_T
-Memory17_InitialCondition ; real_T Memory16_InitialCondition ; real_T
-Memory15_InitialCondition ; real_T Memory14_InitialCondition ; real_T
+; real_T donotdeletethisgain_Gain_e2kry42snu ; real_T Memory_InitialCondition
+; real_T Memory17_InitialCondition ; real_T Memory16_InitialCondition ;
+real_T Memory15_InitialCondition ; real_T Memory14_InitialCondition ; real_T
 Memory13_InitialCondition ; real_T Memory12_InitialCondition ; real_T
 Memory11_InitialCondition ; real_T Memory10_InitialCondition ; real_T
 Memory9_InitialCondition ; real_T Memory7_InitialCondition ; real_T
@@ -245,40 +229,53 @@ Saturation2_LowerSat_djkw5ghtjz ; real_T Memory2_InitialCondition_otmdfxbv2b
 ; real_T Memory1_InitialCondition_eyxrd3us35 ; real_T
 Memory_InitialCondition_afcza04ewo ; real_T itinit1_InitialCondition ; real_T
 Gain4_Gain ; real_T Gain1_Gain ; real_T Gain2_Gain ; real_T R1_Gain ; real_T
+Multiply_Gain_ghq4r0q5k3 ; real_T Multiply1_Gain ; real_T
+donotdeletethisgain_Gain_nzzshfnxdx ; real_T
+DiscreteTimeIntegrator_gainval_fhcrjdv1um ; real_T
+DiscreteTimeIntegrator_IC_muc3fdmls2 ; real_T
+UnitDelay2_InitialCondition_bdexezlukf ; real_T
+UnitDelay_InitialCondition_br0av5wkrv ; real_T
+DiscreteTimeIntegrator1_gainval ; real_T DiscreteTimeIntegrator1_IC ; real_T
+Gain_Gain_duepg35cnl ; real_T donotdeletethisgain_Gain_ghiynr5jt3 ; real_T
+UnitDelay1_InitialCondition_gagfd2xjhh ; real_T
+Saturation1_UpperSat_jbsy2jdb2e ; real_T Saturation1_LowerSat_km3pw1r5au ;
+real_T donotdeletethisgain_Gain_l30jrki0pa ; real_T
+donotdeletethisgain_Gain_m3s0jpprkc ; real_T
 donotdeletethisgain_Gain_hoplgufukg ; real_T
 donotdeletethisgain_Gain_hqauyrnmgx ; real_T SwitchCurrents_Value [ 12 ] ;
 real_T Constant_Value_ffncqspxq4 ; real_T Constant1_Value ; real_T
 Constant2_Value ; real_T Constant3_Value ; real_T Constant_Value_jrk1wafdx5 ;
 real_T Constant1_Value_avw5uhdxx5 ; real_T Constant5_Value ; real_T
-Constant4_Value ; real_T Constant6_Value ; real_T Constant7_Value ; real_T
-Constant8_Value ; real_T Multiply3_Gain ; real_T Constant_Value_kfm5xzok4i ;
-real_T Constant19_Value ; real_T Constant1_Value_lfvx2nwcp2 ; real_T
-Constant2_Value_krq4yfjnno ; real_T Constant3_Value_acddb2uoov ; real_T
-Constant4_Value_fthefd0get ; real_T Constant_Value_oibu00r03f ; real_T
-Constant1_Value_ktzhc0x1wo ; real_T Constant_Value_nct1bh10mh ; real_T
+Constant6_Value ; real_T Constant_Value_nct1bh10mh ; real_T
 Constant1_Value_aacpe0p2s4 ; real_T Constant_Value_m3ckpdnl3e ; real_T
 Constant1_Value_bcnppbahb4 ; real_T Constant12_Value ; real_T
-Constant14_Value ; real_T Constant8_Value_hfo2s31sle ; real_T Constant9_Value
-; real_T Constant1_Value_ixcqqm1d4w ; real_T Constant2_Value_m10aoab32w ;
-real_T Constant3_Value_nmyyw0epx1 ; real_T Constant4_Value_jmvupybtnc ;
-real_T Ta_Value ; real_T Constant5_Value_kbjoyjqk2a ; real_T
-Constant5_Value_k3metw3ccu ; real_T Saturation_UpperSat_nd1j1mqyat ; real_T
-Saturation_LowerSat_jwye2411i5 ; real_T eee_Value ; } ; extern const real_T
-fast_powertrain_RGND ; extern const char * RT_MEMORY_ALLOCATION_ERROR ;
-extern B rtB ; extern DW rtDW ; extern P rtP ; extern const
-rtwCAPI_ModelMappingStaticInfo * fast_powertrain_GetCAPIStaticMap ( void ) ;
-extern SimStruct * const rtS ; extern const int_T gblNumToFiles ; extern
-const int_T gblNumFrFiles ; extern const int_T gblNumFrWksBlocks ; extern
-rtInportTUtable * gblInportTUtables ; extern const char * gblInportFileName ;
-extern const int_T gblNumRootInportBlks ; extern const int_T
-gblNumModelInputs ; extern const int_T gblInportDataTypeIdx [ ] ; extern
-const int_T gblInportDims [ ] ; extern const int_T gblInportComplex [ ] ;
-extern const int_T gblInportInterpoFlag [ ] ; extern const int_T
-gblInportContinuous [ ] ; extern const int_T gblParameterTuningTid ; extern
-DataMapInfo * rt_dataMapInfoPtr ; extern rtwCAPI_ModelMappingInfo *
-rt_modelMapInfoPtr ; void MdlOutputs ( int_T tid ) ; void
-MdlOutputsParameterSampleTime ( int_T tid ) ; void MdlUpdate ( int_T tid ) ;
-void MdlTerminate ( void ) ; void MdlInitializeSizes ( void ) ; void
-MdlInitializeSampleTimes ( void ) ; SimStruct * raccel_register_model (
-ssExecutionInfo * executionInfo ) ;
+Constant14_Value ; real_T Constant8_Value ; real_T Constant9_Value ; real_T
+Constant1_Value_ixcqqm1d4w ; real_T Constant2_Value_m10aoab32w ; real_T
+Constant3_Value_nmyyw0epx1 ; real_T Constant4_Value ; real_T Ta_Value ;
+real_T Constant_Value_embijewti4 ; real_T Constant1_Value_f3txfozlof ; real_T
+Constant3_Value_cnmqtz2p2n ; real_T Constant4_Value_chdfctpggi ; real_T
+Constant7_Value ; real_T Constant8_Value_iqk3wb1evy ; real_T
+Constant_Value_kfm5xzok4i ; real_T Constant19_Value ; real_T
+Constant1_Value_lfvx2nwcp2 ; real_T Constant2_Value_krq4yfjnno ; real_T
+Constant3_Value_acddb2uoov ; real_T Constant4_Value_fthefd0get ; real_T
+Constant_Value_oibu00r03f ; real_T Constant1_Value_ktzhc0x1wo ; real_T
+Constant2_Value_d2yksltlle ; real_T Constant10_Value ; real_T
+Constant9_Value_b1nk1ggw4w ; real_T Constant5_Value_k3metw3ccu ; real_T
+eee_Value ; } ; extern const real_T fast_powertrain_RGND ; extern const char
+* RT_MEMORY_ALLOCATION_ERROR ; extern B rtB ; extern DW rtDW ; extern P rtP ;
+extern const rtwCAPI_ModelMappingStaticInfo *
+fast_powertrain_GetCAPIStaticMap ( void ) ; extern SimStruct * const rtS ;
+extern const int_T gblNumToFiles ; extern const int_T gblNumFrFiles ; extern
+const int_T gblNumFrWksBlocks ; extern rtInportTUtable * gblInportTUtables ;
+extern const char * gblInportFileName ; extern const int_T
+gblNumRootInportBlks ; extern const int_T gblNumModelInputs ; extern const
+int_T gblInportDataTypeIdx [ ] ; extern const int_T gblInportDims [ ] ;
+extern const int_T gblInportComplex [ ] ; extern const int_T
+gblInportInterpoFlag [ ] ; extern const int_T gblInportContinuous [ ] ;
+extern const int_T gblParameterTuningTid ; extern DataMapInfo *
+rt_dataMapInfoPtr ; extern rtwCAPI_ModelMappingInfo * rt_modelMapInfoPtr ;
+void MdlOutputs ( int_T tid ) ; void MdlOutputsParameterSampleTime ( int_T
+tid ) ; void MdlUpdate ( int_T tid ) ; void MdlTerminate ( void ) ; void
+MdlInitializeSizes ( void ) ; void MdlInitializeSampleTimes ( void ) ;
+SimStruct * raccel_register_model ( ssExecutionInfo * executionInfo ) ;
 #endif

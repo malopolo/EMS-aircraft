@@ -43,14 +43,16 @@ function Fit = fitness(Pop,fisi,model_type,projectpath)
         model = strcat(projectpath,'\Main\fast_powertrain.slx');
         load_system(model);
         SOC_init = 80;
+        SimTime = 60; % Max simulation time
         set_param('fast_powertrain/Fuzzy Logic Controller','FIS',"'fuzzy_to_improve_1.fis'");
         set_param('fast_powertrain/Battery','SOC', string(SOC_init));
         warning('off','all');
-        
+        set_param('fast_powertrain','StartTime','0','StopTime',num2str(SimTime));
+%         set_param('fast_powertrain','FastRestart','on');
         %% start the fitness evaluation
         for i = 1:len
             % change the fuzzy (here we just change the fuzzy mfs)
-            change_mfs_fis(Pop(i,:),fisi);
+            fast_change_mfs_fis(Pop(i,:),fisi);
             
             % compute the model / sim
             [DIfc, mh2, error_power, SOC] = get_results_from_sim(model,model_type);
@@ -58,5 +60,6 @@ function Fit = fitness(Pop,fisi,model_type,projectpath)
             % compute the cost function and get the results
             Fit(i,1) = cost_function(DIfc, mh2, error_power, SOC);
         end
+%         set_param('fast_powertrain','FastRestart','off');
     end
 end

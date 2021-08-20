@@ -1,0 +1,52 @@
+[System]
+Name='best_sol'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 1]
+NumMFs=4
+MF1='mf1':'gaussmf',[0.494388045161146 0.724268073780543]
+MF2='mf2':'gaussmf',[0.150511479929179 0.520144840655626]
+MF3='mf3':'gaussmf',[0.414054406458471 0.788600247119921]
+MF4='mf4':'gaussmf',[0.580649247423988 0.131076295821133]
+
+[Input2]
+Name='input2'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.224007752657372 0.209142181123716]
+MF2='mf2':'gaussmf',[0.199553409680096 0.197159043228796]
+MF3='mf3':'gaussmf',[0.374979602896307 0.653096175193393]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=4
+MF1='mf2':'gaussmf',[0.0816046467892813 0.41668711331449]
+MF2='mf3':'gaussmf',[0.846110070529528 0.0520677529577315]
+MF3='mf1':'gaussmf',[0.39854480308525 0.233349687700397]
+MF4='mf4':'gaussmf',[0.00393930359916572 0.694069018282649]
+
+[Rules]
+1 1, 1 (1) : 1
+2 1, 2 (1) : 1
+3 1, 2 (1) : 1
+4 1, 4 (1) : 1
+1 2, 3 (1) : 1
+2 2, 1 (1) : 1
+3 2, 2 (1) : 1
+4 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 3, 1 (1) : 1
+3 3, 1 (1) : 1
+4 3, 2 (1) : 1

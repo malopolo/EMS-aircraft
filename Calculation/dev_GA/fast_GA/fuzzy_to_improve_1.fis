@@ -1,0 +1,52 @@
+[System]
+Name='fuzzy_to_improve_1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 1]
+NumMFs=4
+MF1='mf1':'gaussmf',[0.432391503783462 0.825313795402046]
+MF2='mf2':'gaussmf',[0.083469814858914 0.133171007607162]
+MF3='mf3':'gaussmf',[0.173388613119006 0.390937802323736]
+MF4='mf4':'gaussmf',[0.83137974283907 0.80336439160244]
+
+[Input2]
+Name='input2'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.0604711791698936 0.399257770613576]
+MF2='mf2':'gaussmf',[0.526875830508296 0.416799467930787]
+MF3='mf3':'gaussmf',[0.656859890973707 0.627973359190104]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=4
+MF1='mf2':'gaussmf',[0.291984079961715 0.43165117024872]
+MF2='mf3':'gaussmf',[0.015487125636019 0.984063724379154]
+MF3='mf1':'gaussmf',[0.167168409914656 0.106216344928664]
+MF4='mf4':'gaussmf',[0.372409740055537 0.198118402542975]
+
+[Rules]
+1 1, 1 (1) : 1
+2 1, 2 (1) : 1
+3 1, 2 (1) : 1
+4 1, 4 (1) : 1
+1 2, 3 (1) : 1
+2 2, 1 (1) : 1
+3 2, 2 (1) : 1
+4 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 3, 1 (1) : 1
+3 3, 1 (1) : 1
+4 3, 2 (1) : 1

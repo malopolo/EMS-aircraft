@@ -4,8 +4,8 @@ clear
 close all;
 
 %% GA Parameters
-NumGeneration = 60;
-PopSize = 30;
+NumGeneration = 1;
+PopSize = 4;
 ChromosomeSize = 22;
 CrossPercent = 70; % crossover probability x100
 MutatPercent = 20; % mutation probability x100
@@ -120,10 +120,12 @@ end
 %% Save the model if needed:
 if strcmp(model_to_use,'fast_powertrain')
     model = strcat(projectpath,'\Main\fast_powertrain.slx');
-    close_system(model)
+%     save_sytem(model);
+%     close_system(model);
 elseif strcmp(model_to_use,'powertrain')
     model = strcat(projectpath,'\Main\powertrain.slx');
-    close_system(model)
+%     save_sytem(model);
+%     close_system(model);
 end
 %% Results
 BestSolution = Pop(1,:)
