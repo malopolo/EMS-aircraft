@@ -11,14 +11,13 @@ function Fit = fast_fitness(Pop,fisi,model,Ts,Method)
         
         % compute the model / sim
         model_res = sim(model);
-        assignin('base','mood',model_res);
+%         assignin('base','mood',model_res);
         % extract the data
         [DIfc, mh2, error_power, SOC, Pfc] = fast_get_results_from_sim(model_res,'');
         
         % compute the cost function and get the results
         Fit(i,1) = fast_cost_function(DIfc, mh2, error_power, SOC, Pfc,Ts);
     end
-    
     
     %     %% start the fitness evaluation (parallel)
     %     global fuzzy_test

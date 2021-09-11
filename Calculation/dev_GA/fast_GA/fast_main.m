@@ -4,8 +4,8 @@ clear
 close all;
 
 %% GA Parameters
-NumGeneration = 30;
-PopSize = 60;
+NumGeneration = 1;
+PopSize = 3;
 ChromosomeSize = 22;
 CrossPercent = 70; % crossover probability x100
 MutatPercent = 20; % mutation probability x100
@@ -86,7 +86,7 @@ fuzzy_test = readfis('fuzzy_to_improve_1.fis');
 set_param('fast_powertrain/Fuzzy Logic Controller','FIS',"fuzzy_test");
 
 % Enable fast restart
-set_param(model_to_use,'FastRestart','off');
+set_param(model_to_use,'FastRestart','on');
 save_system(model);
 
 
@@ -157,10 +157,10 @@ set_param(model_to_use,'FastRestart','off');
 %% Results
 BestSolution = Pop(1,:)
 BestCost = Fit(1,:)
-
+Pop
 %% End Program
 toc(looptime)
 
 %% Save Best Solution
 best_sol = readfis('best_sol.fis');
-write_bestsol_fis(BestSolution,best_sol);
+% write_bestsol_fis(BestSolution,best_sol);

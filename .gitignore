@@ -30,3 +30,7 @@ codegen/
 
 # Octave session info
 octave-workspace
+Data/B80_ECMS_climb.mat
+Data/B80_ECMS_cruise.mat
+Data/B80_ECMS_descend.mat
+Data/B80_ECMS_takeoff.mat

@@ -23,6 +23,7 @@ function Cost = fast_cost_function(DIfc, mh2, error_power, SOC,Pfc,Ts)
     
     %% New design:
     mSOC = 1/SOC; % min = 0.01
+    
     global x_fc_eff fc_eff
     eff = zeros(1,height(Pfc));
     for i= 1:height(Pfc)
