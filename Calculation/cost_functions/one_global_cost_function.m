@@ -23,7 +23,8 @@ function [f,new_fc_func,new_batt_func,new_h2_func] = one_global_cost_function(a,
 
     %     f = efc + eb + eh2;
 
-    f = Pfc_nom*efc/1000 + Ebatt_nom*eb/2500 + eh2;
+%     f = Pfc_nom*efc/1000 + Ebatt_nom*eb/2500 + eh2;
+    f = Pfc_nom*efc/1000 + Ebatt_nom*eb/1000 + eh2;
     
 end
 

@@ -1,0 +1,52 @@
+[System]
+Name='fuzzy_for_final_2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[0 1]
+NumMFs=4
+MF1='mf1':'gaussmf',[0.31479 0.11034]
+MF2='mf2':'gaussmf',[0.30389 0.17507]
+MF3='mf3':'gaussmf',[0.57742 0.79679]
+MF4='mf4':'gaussmf',[0.00646 0.7007]
+
+[Input2]
+Name='input2'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.93609 0.34136]
+MF2='mf2':'gaussmf',[0.93275 0.55661]
+MF3='mf3':'gaussmf',[0.19885 0.31957]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=4
+MF1='mf2':'gaussmf',[0.32794 0.67455]
+MF2='mf3':'gaussmf',[0.17059 0.85483]
+MF3='mf1':'gaussmf',[0.81948 0.73497]
+MF4='mf4':'gaussmf',[0.95316 0.01613]
+
+[Rules]
+1 1, 1 (1) : 1
+2 1, 2 (1) : 1
+3 1, 2 (1) : 1
+4 1, 4 (1) : 1
+1 2, 3 (1) : 1
+2 2, 1 (1) : 1
+3 2, 2 (1) : 1
+4 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 3, 1 (1) : 1
+3 3, 1 (1) : 1
+4 3, 2 (1) : 1

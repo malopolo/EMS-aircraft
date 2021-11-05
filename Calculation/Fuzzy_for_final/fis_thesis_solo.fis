@@ -1,0 +1,52 @@
+[System]
+Name='fis_thesis_solo'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Pdemand'
+Range=[0 1]
+NumMFs=4
+MF1='mf4':'gaussmf',[0.2 0.8253]
+MF2='mf1':'gaussmf',[0.08347 0.135816510252665]
+MF3='mf2':'gaussmf',[0.173388613119006 0.390937802323736]
+MF4='mf3':'gaussmf',[0.2 0.6]
+
+[Input2]
+Name='SOC'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'gaussmf',[0.3 0.225]
+MF2='mf2':'gaussmf',[0.3 0.5]
+MF3='mf3':'gaussmf',[0.3 0.75]
+
+[Output1]
+Name='Pfc_demand'
+Range=[0 1]
+NumMFs=4
+MF1='mf3':'gaussmf',[0.2 0.7326]
+MF2='mf4':'gaussmf',[0.1 0.9]
+MF3='mf1':'gaussmf',[0.167168409914656 0.106216344928664]
+MF4='mf2':'gaussmf',[0.25 0.3636]
+
+[Rules]
+1 1, 2 (1) : 1
+2 1, 3 (1) : 1
+3 1, 1 (1) : 1
+4 1, 2 (1) : 1
+1 2, 1 (1) : 1
+2 2, 4 (1) : 1
+3 2, 4 (1) : 1
+4 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 3, 3 (1) : 1
+3 3, 4 (1) : 1
+4 3, 4 (1) : 1

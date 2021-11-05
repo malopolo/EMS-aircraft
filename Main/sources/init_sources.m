@@ -1,4 +1,4 @@
-function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
+function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts,SOC_init)
     %     BatteryParam(48 = ;15 = ;15 = ;36 = ;55.8714 = ;6.5217 = ;0.032 = ;13.5652 = ;[51.8585 0.736957] = ;gcb = ;0)
     %% BATTdataery FCdata initialization
     BATTdata.Batt_Tr = 20;
@@ -20,7 +20,7 @@ function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
     
     BATTdata.voltage = 0;
     BATTdata.ouput_voltage = 0;
-    BATTdata.SOC = 80;
+    BATTdata.SOC = SOC_init;
     
     
     % states
@@ -32,6 +32,12 @@ function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
     BATTdata.old_current = 0;
     BATTdata.init = 1;
     
+    % converter
+    BATTdata.RL = 1e-3;
+    BATTdata.RR = 1e-3;
+    BATTdata.RRp = 0;
+    BATTdata.CL = 1e-4;
+    BATTdata.CR = 1e-4;
     
     %% FC FCdata initialization
     % variables / states
@@ -45,10 +51,15 @@ function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
     FCdata.old_E_act_d = 0;
     FCdata.old_lim = 1;
     FCdata.Efc = 0;
+    FCdata.old_Vconv = 0;
+    FCdata.old_iconv = 0;
     
     % static FCdata
     FCdata.Ts = Ts;
     % converter FCdata
+    FCdata.RL = 2e-3;
+    FCdata.RR = 2e-3;
+    FCdata.RRp = 5e3;
     FCdata.L = 2e-3;
     FCdata.Ca = 1e-4;
     FCdata.Cdc = 1;
@@ -73,7 +84,7 @@ function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
     FCdata.Kpv=2*FCdata.Ct*zetawnv;
     wnv=zetawnv/zetav;
     FCdata.Kiv=FCdata.Ct*wnv^2;
-    clear wnv zetawnv thau_sv zetav wni zetawni thau_si zetai damp
+%     clear wnv zetawnv thau_sv zetav wni zetawni thau_si zetai damp
     
     % fuel cell FCdata
     FCdata.eff = 0.9;
@@ -85,6 +96,7 @@ function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
     FCdata.C_act = 2;
     FCdata.A = 19.6*4.0;
     FCdata.Nfc = 50;
+    FCdata.Ncell = 50;
     FCdata.lambda = 14;
     FCdata.l = 21e-4 * 10^-2;
     FCdata.JM = 45/FCdata.A;
@@ -119,6 +131,11 @@ function [BATTdata,FCdata,PVdata,SCdata] = init_sources(Ts)
     PVdata.Eg0 = 1.121;
     PVdata.Eg_ref = PVdata.Eg0*PVdata.q; % Band gap for silicon (eV)
     
+    % Conv PV:
+    PVdata.RL = 2e-3;
+    PVdata.RL = 2e-3;
+    PVdata.RR = 2e-3;
+    PVdata.Ca = 1e-4;
     
     %% SC SCdata initialization
     SCdata.Ts = Ts;

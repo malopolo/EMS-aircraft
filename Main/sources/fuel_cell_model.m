@@ -100,17 +100,17 @@ function [old_data] = fuel_cell_model(Ifc,old_data)
     %% Air utilization
     U_O2 = 60000*Ifc*R_*T*Nfc/(2*nF*0.0181*1*0.21*Pstd);
     limit = 1;
-    if J/JM >= 1
-        E_con = 0;
-        E_act_steady = 0;
-        E_ohm = 0;
-        E_act_d = 0;
-        E_Ner = -35*Ifc;
-        if E_Ner <= 0
-            E_Ner = 0;
-        end
-        limit = 0;
-    end
+%     if J/JM >= 1
+%         E_con = 0;
+%         E_act_steady = 0;
+%         E_ohm = 0;
+%         E_act_d = 0;
+%         E_Ner = -35*Ifc;
+%         if E_Ner <= 0
+%             E_Ner = 0;
+%         end
+%         limit = 0;
+%     end
     
         
     %% Fuel cell voltage
@@ -125,10 +125,10 @@ function [old_data] = fuel_cell_model(Ifc,old_data)
 %     E_ohm
 %     E_con
 %     E_act
-    Efc = Nfc*(E_Ner + E_ohm + E_con - E_act);
-    if Efc <= 0
-        Efc = 0;
-    end
+    Efc = abs(Nfc*(E_Ner + E_ohm + E_con - E_act));
+%     if Efc <= 0
+%         Efc = 0;
+%     end
     
     old_data.E_act = E_act ;
     old_data.old_E_act_bl = old_E_act_bl ;

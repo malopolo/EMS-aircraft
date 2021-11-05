@@ -21,6 +21,8 @@ function f = loop_res_fun(x,Vin,Vdc,Ifc_out,ILmax,Vdc_ref,data,Hp,Pload_est,k)
     Ptot_fc_out = 0;
     err = 0;
     Iout = Ifc_out;
+    mfc = 0;
+    Pbatt_tot = 0;
 %     x
 %     Pload_est
     for i=1:Hp
@@ -34,28 +36,21 @@ function f = loop_res_fun(x,Vin,Vdc,Ifc_out,ILmax,Vdc_ref,data,Hp,Pload_est,k)
         else
             Vdc_ref = 72;
         end
-        Ptot_fc = Ptot_fc + Pin;
+%         Ptot_fc = Ptot_fc + Pin;
+        Ptot_fc = Ptot_fc + Pout/0.9;
         Ptot_fc_out = Ptot_fc_out + Pout;
-        if (Pload_est(i) - Pout)/0.9 > 850 || (Pload_est(i) - Pout)/0.9 < -150
+        if (Pload_est(i) - Pout)/0.9 > 1000 || (Pload_est(i) - Pout)/0.9 < -200
             err = err + 3000;
         end
         if Pout < (Pload_est(i) - Pout) && k < 0
             err = err + 3000;
         end
+        mfc = mfc + (Pin-400).^2/400^2;
+                Pbatt_tot = Pbatt_tot+(Pload_est(i) - Pout)/0.9;
 %         Pout
     end
-%     if (sum(Pload_est) - Ptot_fc_out)/0.9 > Hp*850
-%         err = Hp*(sum(Pload_est) - Ptot_fc_out)/0.9;
-%     elseif (sum(Pload_est) - Ptot_fc_out)/0.9 < Hp*(-150)
-%         err = -Hp*(sum(Pload_est) - Ptot_fc_out)/0.9;
-%     end
-%     Ptot_fc_out
-%     (sum(Pload_est) - Ptot_fc_out)/0.9
-    %     f = Hp*data.Ts * (Ptot_fc*(1-x(2)) + x(2)*sum(Pload_est) + err) %
-    %     change for SOC(t)
-    f = Hp*data.Ts * (Ptot_fc*(1-k) + k*sum(Pload_est) + err);
-    
-    
+
+    f = Hp*data.Ts * (Ptot_fc + k*sum(Pbatt_tot) + err + mfc);
     
 end
 
@@ -294,6 +289,7 @@ function [Vin,Vout,Iout,Pin,Pout,new_data] = res_fun(Vdc,Ifc_out,ILmax,Vdc_ref,d
     old_E_act_bl = E_act_bl;
     E_act = old_lim *E_act_bl;
     old_lim = limit;
+    
     
     old_lim = limit;
     

@@ -1,4 +1,5 @@
-function [d,iconv,Vconv,controllerData] = buck_regulator(Esource,Rsource,controllerData,Vbatt_ref,Vbatt,Ibatt,Ibatt_ref,iL)
+function [d,iconv,Vconv,controllerData] = buck_regulator(Esource,Rsource,...
+        controllerData,Vbatt_ref,Vbatt,Ibatt,Ibatt_ref,iL)
     %% states
     e_pre = controllerData.e_pre;
     e2_pre = controllerData.e2_pre;

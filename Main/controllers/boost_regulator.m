@@ -1,5 +1,7 @@
-function [d,iconv,Vconv,controllerData] = boost_regulator(Esource,Rsource,controllerData,Vdc_ref,ILmax,Vdc,idc,iL)
+function [d,iconv,Vconv,controllerData] = boost_regulator(Esource,Rsource,...
+        controllerData,Vdc_ref,ILmax,Vdc,idc,iL)
     %% states
+    
     e_pre = controllerData.e_pre;
     e2_pre = controllerData.e2_pre;
     pi_pi = controllerData.pi_pi;
@@ -7,6 +9,9 @@ function [d,iconv,Vconv,controllerData] = boost_regulator(Esource,Rsource,contro
     
     
     %% constant 
+    Ts = controllerData.Ts;
+    eff = controllerData.eff;
+    
     Kpv = controllerData.Kpv;
     Kiv = controllerData.Kiv;
     
@@ -42,7 +47,7 @@ function [d,iconv,Vconv,controllerData] = boost_regulator(Esource,Rsource,contro
     
     % states
     controllerData.old_Vconv = (1-d)*Vdc;
-    controllerData.old_iconv = (1-d)*controllerData.conv_eff*iL;
+    controllerData.old_iconv = (1-d)*eff*iL;
     controllerData.e_pre = e_pre;
     controllerData.e2_pre = e2_pre;
     controllerData.pi_pi = pi_pi;

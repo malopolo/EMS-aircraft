@@ -8,7 +8,7 @@ function f = global_cost_funciton(Pfc,Ifc_in,Ibatt_in,SOC,t)
     
     fc_cost = 525;
     batt_cost = 640;
-    h2_cost = 2/1000;
+    h2_cost = 5.11/1000;
     Pfc_in = Pfc;
     delta_fc = dfc(t,Pfc_nom,Pfc_in);
     delta_bat = dbatt(t,SOC,Ibatt_in,Ibatt_nom,Q);
@@ -21,7 +21,8 @@ function f = global_cost_funciton(Pfc,Ifc_in,Ibatt_in,SOC,t)
     eh2 = h2_cost * delta_h2;
     
 %     f = efc + eb + eh2;
-        f = Pfc_nom*efc/1000 + Ebatt_nom*eb/2500 + eh2;
+%         f = Pfc_nom*efc/1000 + Ebatt_nom*eb/2500 + eh2;
+        f = Pfc_nom*efc/1000 + Ebatt_nom*eb/1000 + eh2;
     
     %     pb_inf = find(Pbatt < - 150);
     %     pb_sup = find(Pbatt > 850);
@@ -58,8 +59,12 @@ function out = weight_func_2(Ibatt,Ibatt_nom)
 %         end
 %         out = [out;outt];
 %     end
-    
-        out = zeros(1,length(Ibatt));
+    if length(Ibatt) > 1
+        sss = length(Ibatt);
+    else
+        sss = height(Ibatt);
+    end
+    out = zeros(1,sss);
     for i=1:length(Ibatt)
         if Ibatt(i) >= 0
             out(i) = 1+0.45*Ibatt(i)/Ibatt_nom;
@@ -76,8 +81,6 @@ function d = dh2(t,N,F,Ifc)
 end
 
 function d = dbatt(t,SOC,Ibatt_in,Ibatt_nom,Qbatt_max)
-    size(weight_func_1(SOC))
-    size(weight_func_2(Ibatt_in,Ibatt_nom))
     d = trapz(t,abs(weight_func_1(SOC).*weight_func_2(Ibatt_in,Ibatt_nom).*Ibatt_in))/Qbatt_max/3600;
 end
 
