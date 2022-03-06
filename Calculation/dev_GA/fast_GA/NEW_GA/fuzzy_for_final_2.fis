@@ -12,7 +12,7 @@ AggMethod='max'
 DefuzzMethod='centroid'
 
 [Input1]
-Name='input1'
+Name='Pdemand'
 Range=[0 1]
 NumMFs=4
 MF1='mf1':'gaussmf',[0.31479 0.11034]
@@ -21,7 +21,7 @@ MF3='mf3':'gaussmf',[0.57742 0.79679]
 MF4='mf4':'gaussmf',[0.00646 0.7007]
 
 [Input2]
-Name='input2'
+Name='SOC'
 Range=[0 1]
 NumMFs=3
 MF1='mf1':'gaussmf',[0.93609 0.34136]
@@ -29,7 +29,7 @@ MF2='mf2':'gaussmf',[0.93275 0.55661]
 MF3='mf3':'gaussmf',[0.19885 0.31957]
 
 [Output1]
-Name='output1'
+Name='Pfc_demand'
 Range=[0 1]
 NumMFs=4
 MF1='mf2':'gaussmf',[0.32794 0.67455]
